@@ -5,6 +5,15 @@ const {notesController}=require("./Routes/notes.Route")
 require("dotenv").config()
 const cors=require("cors")
 
+
+app.use((req,res,next)=>{
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+})
 const app=express()
 
 const PORT=process.env.PORT || 7600
